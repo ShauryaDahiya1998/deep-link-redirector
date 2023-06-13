@@ -12,6 +12,14 @@ app.get('/', (req, res) => {
   res.send('Hey this is my API running 🥳')
 })
 
+app.get('/redirect', (req, res) => {
+    const encodedDeepLink = req.query.url;
+    const deepLink = decodeURIComponent(encodedDeepLink);
+  
+    // Perform any necessary validation or sanitization of the deep link
+    res.redirect(deepLink);
+  });
+
 app.get('/about', (req, res) => {
   res.send('This is my about route..... ')
 })
